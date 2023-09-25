@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import '../animation/GenerateSquareSpin.scss'
 import generateElement from './helpers/generateElement';
 
-function GenerateSquareSpin({ length = 1, typeOfElement = 'span', shape = 'circle', vw = '70', vh = '70' }) {
+function GenerateShapeSpin({ length = 1, typeOfElement = 'span', shape = 'circle', vw = '70', vh = '70' }) {
     // Initialize state to store generated elements
     const [generatedElements, setGeneratedElements] = useState([]);
 
@@ -15,7 +15,6 @@ function GenerateSquareSpin({ length = 1, typeOfElement = 'span', shape = 'circl
 
     return (
         <>
-
             {generatedElements.map((element, index) => (
                 <React.Fragment key={index}>{element}</React.Fragment>
             ))}
@@ -26,7 +25,7 @@ function GenerateSquareSpin({ length = 1, typeOfElement = 'span', shape = 'circl
     );
 }
 
-export default GenerateSquareSpin;
+export default GenerateShapeSpin;
 
 
 // 'use client'
