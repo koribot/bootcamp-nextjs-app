@@ -1,3 +1,4 @@
+
 import '@/styles/global.scss'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <section>
-          <GenerateShapeSpin length={150} typeOfElement='span' shape='square' vw='80' vh='80' maxBrightness='100' />
+          <GenerateShapeSpin length={150} typeOfElement='span' shape='random' vw='80' vh='80' maxBrightness='100' />
         </section>
       </body>
     </html>

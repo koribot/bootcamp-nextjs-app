@@ -6,7 +6,7 @@ import '../components/animation/GenerateSquareSpin.scss'
 import getRandomColors from './animation/helpers/getRandomColors';
 
 const displayOptions = [
-  { displayName: 'Projects', link: '/' },
+  { displayName: 'Projects', link: '/projects' },
   { displayName: 'Github', link: 'https://github.com/koribot' },
   { displayName: 'Socials', link: '/' }
 ];
@@ -25,7 +25,7 @@ const Navbar = () => {
     const color = getRandomColors(100)
     let randomColorIndex = Math.floor(Math.random() * colorList.length)
     setBackgroundColor(color)
-    console.log(backgroundColor)
+    // console.log(backgroundColor)
   }, [])
 
   return (
