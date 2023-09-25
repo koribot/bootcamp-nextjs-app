@@ -1,0 +1,221 @@
+@import './variables/globalVariables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100vh;
+    background-image: url('https://img.freepik.com/premium-vector/black-abstract-background-with-geometric-shapes-elegant_476151-624.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+//width and height
+.width-full {
+    width: $w-full;
+}
+
+.height-sm {
+    height: $sm;
+}
+
+.height-md {
+    height: $md;
+
+}
+
+
+
+.d-block {
+    display: block;
+}
+
+//display area. eg: Flex, block
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-even {
+    justify-content: space-evenly;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+
+.align-start {
+    align-items: flex-start;
+}
+
+
+
+
+
+
+//spacing Gap
+.gap-sm {
+    gap: $sm
+}
+
+
+
+
+
+
+
+//styles, UL, <a>, li.....
+.style-none {
+    list-style-type: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+
+
+//cursor
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+//text
+.text-white {
+    color: white;
+}
+
+
+
+
+
+
+
+//background
+.bg-green {
+    background-color: $main-color;
+}
+
+.bg-gray {
+    background-color: $background-gray;
+}
+
+.bg-blue {
+    background-color: $background-blue;
+}
+
+.bg-green {
+    background-color: $background-green;
+}
+
+.bg-skeleton {
+    background: linear-gradient(90deg, $background-skeleton 25%, #2ec088 50%, $background-skeleton 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+
+    @keyframes loading {
+        0% {
+            background-position: -200% 0;
+        }
+
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+}
+
+
+
+
+
+//z-index
+
+.z-index-priority {
+    z-index: 999999999999999999999999999;
+}
+
+
+
+
+//position
+.p-sticky {
+    position: sticky;
+    top: 0;
+}
+
+.p-fixed {
+    position: fixed;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.p-relative {
+    position: relative;
+}
+
+
+
+
+
+
+
+//Responsiveness
+.desktop-flex {
+    @media screen and (min-width: $small-screen) {
+        display: inherit;
+
+    }
+
+    @media screen and (min-width: $medium-screen) {
+        display: inherit;
+    }
+
+    @media screen and (max-width: $medium-screen) {
+        display: none;
+    }
+
+    @media screen and (max-width: $small-screen) {
+        display: none;
+    }
+}
