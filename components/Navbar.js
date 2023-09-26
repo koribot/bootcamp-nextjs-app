@@ -22,10 +22,14 @@ const Navbar = () => {
   const [backgroundColor, setBackgroundColor] = useState('skeleton')
 
   useEffect(() => {
-    const color = getRandomColors(100)
-    let randomColorIndex = Math.floor(Math.random() * colorList.length)
-    setBackgroundColor(color)
-    // console.log(backgroundColor)
+
+    return(()=>{
+      const color = getRandomColors(100)
+      let randomColorIndex = Math.floor(Math.random() * colorList.length)
+      setBackgroundColor(color)
+      console.log(backgroundColor)
+    })
+    
   }, [])
 
   return (

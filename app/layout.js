@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <section>
-          <GenerateShapeSpin length={150} typeOfElement='span' shape='random' vw='80' vh='80' maxBrightness='100' />
+          <GenerateShapeSpin length={80} typeOfElement='span' shape='random' vw='70' vh='60' maxBrightness='100' />
         </section>
       </body>
     </html>
