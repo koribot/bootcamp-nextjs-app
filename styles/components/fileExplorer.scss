@@ -2,7 +2,7 @@
 
 
 .file-explorer-container {
-    z-index: 9999999999999;
+    z-index: 9999;
     position: relative;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
     /* Styles for your file explorer content */
     /* You can adjust the width, height, background, etc. here */
     width: 600px;
-    height: 600px;
+    height: 500px;
     background-color: #000000;
     top: 10%;
     opacity: 0.8;

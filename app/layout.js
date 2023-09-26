@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
       <head>
         <link
           rel="icon"
-          href="/icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
+          href="/icon.ico"
+          type="image/ico"
+          sizes="48x48"
         />
       </head>
       <body className={inter.className}>
