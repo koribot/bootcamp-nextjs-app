@@ -43,7 +43,7 @@ const Navbar = () => {
           />
         </a>
 
-        <ul className='d-flex justify-even align-center gap-sm style-none desktop-flex'>
+        <ul className='d-flex justify-even align-center gap-50px style-none desktop-flex'>
           {displayOptions.map((option, index) => (
             <a key={index} className='cursor-pointer style-none' target={option.displayName === 'Github' ? '_blank' : ''} href={`${option.link}`}>
               {option.displayName}

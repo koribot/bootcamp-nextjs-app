@@ -8,11 +8,12 @@
 
 
 body {
-    height: 100vh;
+    height: 200vh;
     background-image: url('https://img.freepik.com/premium-vector/black-abstract-background-with-geometric-shapes-elegant_476151-624.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 
@@ -39,6 +40,14 @@ body {
 //display area. eg: Flex, block
 .d-flex {
     display: flex;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.fd-row {
+    flex-direction: row;
 }
 
 .justify-center {
@@ -85,7 +94,63 @@ body {
 
 //spacing Gap
 .gap-sm {
-    gap: $sm
+    gap: $gap-sm;
+}
+
+.gap-md {
+    gap: $gap-md;
+}
+
+.gap-lg {
+    gap: $gap-lg;
+}
+
+.gap-5px {
+    gap: $gap-5px;
+}
+
+.gap-10px {
+    gap: $gap-10px;
+}
+
+.gap-15px {
+    gap: $gap-15px;
+}
+
+.gap-20px {
+    gap: $gap-20px;
+}
+
+.gap-25px {
+    gap: $gap-25px;
+}
+
+.gap-30px {
+    gap: $gap-30px;
+}
+
+.gap-35px {
+    gap: $gap-35px;
+}
+
+.gap-40px {
+    gap: $gap-40px;
+}
+
+.gap-45px {
+    gap: $gap-45px;
+}
+
+.gap-50px {
+    gap: $gap-50px;
+}
+
+.gap-55px {
+    gap: $gap-55px;
+}
+
+.gap-60px {
+    gap: $gap-60px;
 }
 
 
