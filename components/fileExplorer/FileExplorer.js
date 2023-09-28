@@ -1,21 +1,29 @@
 'use client'
-
 import React, { useState, useEffect } from 'react'
 import '@/styles/components/fileExplorer.scss'
 import Image from 'next/image'
 
+
+
 const FileExplorer = ({ ...data }) => {
+
+    const [windowSize, setWindowSize] = useState({
+        responsiveWidth: undefined,
+        responsiveHeight: undefined
+
+    })
     const [isDragging, setIsDragging] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 50 });
+    const [position, setPosition] = useState({ x: data.x ? data.x : (windowSize.responsiveWidth / 2) - 150, y: data.y ? data.y : (windowSize.responsiveHeight / 2) - 250 });
 
     const handleMouseDown = (e) => {
-        console.log(isDragging)
-        const initialX = e.pageX - position.x;
-        const initialY = e.pageY - position.y;
+        const rect = e.target.getBoundingClientRect();
+        const initialX = e.clientX - rect.left;
+        const initialY = e.clientY - rect.top;
+
 
         const handleMouseMove = (e) => {
-            const newX = e.pageX - initialX;
-            const newY = e.pageY - initialY;
+            const newX = e.clientX - initialX;
+            const newY = e.clientY - initialY;
             setPosition({ x: newX, y: newY });
         };
 
@@ -29,6 +37,20 @@ const FileExplorer = ({ ...data }) => {
         window.addEventListener('mouseup', handleMouseUp);
     };
 
+    const handleClick = () => {
+        console.log('clicked')
+    }
+
+    useEffect(() => {
+
+        if (typeof window !== undefined) {
+            setWindowSize({
+                responsiveWidth: window.innerWidth,
+                responsiveHeight: window.innerHeight
+            })
+
+        }
+    }, [])
 
 
     return (
@@ -37,7 +59,7 @@ const FileExplorer = ({ ...data }) => {
                 className='file-explorer'
                 draggable='true'
                 style={{
-                    position: 'relative',
+                    position: 'fixed',
                     left: `${position.x}px`,
                     top: `${position.y}px`,
                     cursor: isDragging ? 'grabbing' : 'grab',
@@ -56,6 +78,7 @@ const FileExplorer = ({ ...data }) => {
                             className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
+                            onClick={handleClick}
                         />
                         <Image
                             src='/icons/minimize.png'
@@ -75,13 +98,13 @@ const FileExplorer = ({ ...data }) => {
                         />
                     </div>
                     <span className='file-title'>{data.title}</span>
-                    <Image 
-                    src='/icons/add.png'
-                    width={20}
-                    height={20}
-                    className='cursor-pointer p-absolute justify-center'
-                    alt='okay'
-                    objectfit='contain'
+                    <Image
+                        src='/icons/add.png'
+                        width={20}
+                        height={20}
+                        className='cursor-pointer p-absolute justify-center'
+                        alt='okay'
+                        objectfit='contain'
                     />
                 </div>
                 <div className='folder-container d-flex'>

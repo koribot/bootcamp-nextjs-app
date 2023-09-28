@@ -1,11 +1,16 @@
 @import '../variables/globalVariables.scss';
 
 
-.dock-bg{
+.dock-bg {
     display: flex;
     justify-content: center;
     background: linear-gradient(to bottom, #6e6c6c, #1a1a1a);
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.docker-option:hover {
+    font-weight: bold;
 }

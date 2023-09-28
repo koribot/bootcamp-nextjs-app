@@ -2,19 +2,19 @@
 
 
 .file-explorer-container {
-    z-index: 999999;
     position: relative;
     display: flex;
     justify-content: center;
     /* Horizontally center */
     align-items: flex-start;
     /* Vertically center */
-    height: 100vh;
+
     /* Set the height to 100% of the viewport height */
 }
 
 .file-explorer {
     position: absolute;
+    z-index: 999999999;
     /* Styles for your file explorer content */
     /* You can adjust the width, height, background, etc. here */
     width: 300px;

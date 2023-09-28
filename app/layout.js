@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import GenerateShapeSpin from '@/components/animation/GenerateShapeSpin'
 import Dock from '@/components/dock/Dock'
+import FileExplorer from '@/components/fileExplorer/FileExplorer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,6 +16,8 @@ export const metadata = {
     icon: '/icon.ico',
   },
 }
+
+
 
 export default function RootLayout({ children }) {
   return (
@@ -33,7 +36,7 @@ export default function RootLayout({ children }) {
         <section>
           <GenerateShapeSpin length={80} typeOfElement='span' shape='random' vw='70' vh='60' maxBrightness='100' />
         </section>
-        <Dock/>
+        <Dock />
       </body>
     </html>
   )

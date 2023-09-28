@@ -8,7 +8,7 @@
 
 
 body {
-    height: 100vh;
+    height: 200vh;
     background-image: url('https://img.freepik.com/premium-vector/black-abstract-background-with-geometric-shapes-elegant_476151-624.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
     width: $w-full;
 }
 
-.width-half{
+.width-half {
     width: 50%;
 }
 
@@ -162,26 +162,27 @@ body {
 
 
 //padding && margin
-.padding-sm{
+.padding-sm {
     padding: 10px;
 }
 
-.padding-md{
+.padding-md {
     padding: $md;
 }
 
-.padding-lg{
+.padding-lg {
     padding: $lg;
 }
 
-.margin-sm{
+.margin-sm {
     margin: 10px;
 }
 
-.margin-md{
+.margin-md {
     margin: $md;
 }
-.margin-lg{
+
+.margin-lg {
     margin: $lg;
 }
 
@@ -197,7 +198,7 @@ body {
 
 
 
-.border-radius-smooth{
+.border-radius-smooth {
     border-radius: 25px;
 }
 
@@ -265,8 +266,7 @@ body {
 
 //z-index
 .z-index-priority {
-    z-index: 999999999999999999999999999999999;   
-    position:absolute
+    z-index: 99999999999999999999999999999999999999;
 }
 
 
@@ -292,7 +292,7 @@ body {
     position: relative;
 }
 
-.bottom-0{
+.bottom-0 {
     bottom: 0;
 }
 

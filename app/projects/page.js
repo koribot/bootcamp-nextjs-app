@@ -9,9 +9,9 @@ const projectList = [
 
 const Projects = () => {
     return (
-        <div>
-            <FileExplorer content={projectList} title='project' />
-        </div>
+
+        <FileExplorer content={projectList} title='project' />
+
     )
 }
 
