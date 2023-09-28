@@ -3,6 +3,7 @@ import '@/styles/global.scss'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import GenerateShapeSpin from '@/components/animation/GenerateShapeSpin'
+import Dock from '@/components/dock/Dock'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <section>
           <GenerateShapeSpin length={80} typeOfElement='span' shape='random' vw='70' vh='60' maxBrightness='100' />
         </section>
+        <Dock/>
       </body>
     </html>
   )

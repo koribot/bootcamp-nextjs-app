@@ -1,0 +1,26 @@
+import '@/styles/components/dock.scss'
+const displayOptions = [
+  { displayName: 'Projects', link: '/projects' },
+  { displayName: 'Github', link: 'https://github.com/koribot' },
+  { displayName: 'Socials', link: '/' }
+];
+
+const Dock = () => {
+  return (
+    <div className="d-flex width-full p-fixed bottom-0 justify-center z-index-priority"> 
+         <div className="dock-bg d-flex fd-row width-half margin-sm padding-sm border-radius-smooth">
+         
+          <ul className='d-flex justify-end align-center gap-50px style-none '>
+            {displayOptions.map((option, index) => (
+              <a key={index} className='cursor-pointer style-none text-white' target={option.displayName === 'Github' ? '_blank' : ''} href={`${option.link}`}>
+                {option.displayName}
+              </a>
+            ))}
+          </ul>
+        
+         </div>
+    </div>
+  )
+}
+
+export default Dock

@@ -53,7 +53,7 @@ const FileExplorer = ({ ...data }) => {
                             src='/icons/close.png'
                             width={20}
                             height={20}
-                            className='cursor-pointer z-index-priority'
+                            className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
                         />
@@ -61,7 +61,7 @@ const FileExplorer = ({ ...data }) => {
                             src='/icons/minimize.png'
                             width={20}
                             height={20}
-                            className='cursor-pointer z-index-priority'
+                            className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
                         />
@@ -69,12 +69,20 @@ const FileExplorer = ({ ...data }) => {
                             src='/icons/maximize.png'
                             width={20}
                             height={20}
-                            className='cursor-pointer z-index-priority'
+                            className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
                         />
                     </div>
                     <span className='file-title'>{data.title}</span>
+                    <Image 
+                    src='/icons/add.png'
+                    width={20}
+                    height={20}
+                    className='cursor-pointer p-absolute justify-center'
+                    alt='okay'
+                    objectfit='contain'
+                    />
                 </div>
                 <div className='folder-container d-flex'>
                     <div className='folder-icon'>

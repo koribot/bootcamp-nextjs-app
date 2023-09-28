@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react';
 import '../components/animation/GenerateSquareSpin.scss'
 import getRandomColors from './animation/helpers/getRandomColors';
 
-const displayOptions = [
-  { displayName: 'Projects', link: '/projects' },
-  { displayName: 'Github', link: 'https://github.com/koribot' },
-  { displayName: 'Socials', link: '/' }
-];
+// const displayOptions = [
+//   { displayName: 'Projects', link: '/projects' },
+//   { displayName: 'Github', link: 'https://github.com/koribot' },
+//   { displayName: 'Socials', link: '/' }
+// ];
 
 const colorList = [
   'green',
@@ -22,18 +22,18 @@ const Navbar = () => {
   const [backgroundColor, setBackgroundColor] = useState('skeleton')
 
   useEffect(() => {
-
-    return(()=>{
-      const color = getRandomColors(100)
+    const color = getRandomColors(100)
       let randomColorIndex = Math.floor(Math.random() * colorList.length)
       setBackgroundColor(color)
       console.log(backgroundColor)
-    })
+    // return(()=>{
+      
+    // })
     
   }, [])
 
   return (
-    <nav className={`d-flex justify-center width-full bg-skeleton text-white height-sm p-sticky z-index-priority`} style={{ background: backgroundColor }}>
+    <nav className='d-flex justify-center width-full bg-skeleton bg-green text-white height-sm p-sticky' style={{background: backgroundColor, zIndex:'9999999999999'}}>
       <div className='d-flex justify-even align-center gap-sm width-full'>
         <a href='/'>
           <Image
@@ -47,15 +47,13 @@ const Navbar = () => {
           />
         </a>
 
-        <ul className='d-flex justify-even align-center gap-50px style-none desktop-flex'>
+        {/* <ul className='d-flex justify-even align-center gap-50px style-none desktop-flex'>
           {displayOptions.map((option, index) => (
             <a key={index} className='cursor-pointer style-none' target={option.displayName === 'Github' ? '_blank' : ''} href={`${option.link}`}>
               {option.displayName}
             </a>
           ))}
-        </ul>
-
-
+        </ul> */}
       </div>
     </nav >
   )
