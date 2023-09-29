@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import '@/styles/components/fileExplorer.scss'
 import Image from 'next/image'
+import Folders from '../folders/Folders'
 
 
 
@@ -44,6 +45,7 @@ const FileExplorer = ({ ...data }) => {
     useEffect(() => {
 
         if (typeof window !== undefined) {
+
             setWindowSize({
                 responsiveWidth: window.innerWidth,
                 responsiveHeight: window.innerHeight
@@ -109,19 +111,8 @@ const FileExplorer = ({ ...data }) => {
                 </div>
                 <div className='folder-container d-flex'>
                     <div className='folder-icon'>
-                        {data.content.map((project, index) => (
-                            <div key={index}>
-                                <Image
-                                    src='/icons/folders.png'
-                                    width={50}
-                                    height={50}
-                                    className='cursor-pointer'
-                                    alt={project.description}
-                                />
-                                <p>{project.name}</p>
-                            </div>
-                        ))}
 
+                        <Folders projectData={data} />
                     </div>
                 </div>
             </div>
