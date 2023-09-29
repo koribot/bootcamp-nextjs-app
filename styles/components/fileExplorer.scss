@@ -13,7 +13,6 @@
 }
 
 .file-explorer {
-    position: absolute;
     z-index: 999999999;
     /* Styles for your file explorer content */
     /* You can adjust the width, height, background, etc. here */
@@ -36,6 +35,11 @@
             text-align: center;
             color: white;
             text-transform: uppercase;
+        }
+
+        .add-project {
+            right: 0;
+
         }
     }
 

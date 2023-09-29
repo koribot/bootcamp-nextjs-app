@@ -1,15 +1,17 @@
 import Image from 'next/image'
 import React from 'react'
 import FileExplorer from '../fileExplorer/FileExplorer'
+import '@/styles/components/folder.scss'
 
 const Folders = ({ projectData }) => {
 
     const handleClick = (project) => {
-        projectData.openFolder(project)
+        // console.log(project)
+        projectData.openFileExplorer(project)
     }
 
     return (
-        <div>
+        <div className='grid-container'>
             {projectData.content.map((project, index) => (
                 !projectData.subFolder ?
                     <div key={index} onClick={() => handleClick(project)}>

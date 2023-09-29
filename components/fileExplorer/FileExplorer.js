@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import '@/styles/components/fileExplorer.scss'
 import Image from 'next/image'
 import Folders from '../folders/Folders'
@@ -7,6 +7,7 @@ import Folders from '../folders/Folders'
 
 
 const FileExplorer = ({ ...data }) => {
+    const fileExplorerReference = useRef(null);
 
     const [windowSize, setWindowSize] = useState({
         responsiveWidth: undefined,
@@ -15,7 +16,7 @@ const FileExplorer = ({ ...data }) => {
     })
     const [isDragging, setIsDragging] = useState(false);
     const [position, setPosition] = useState({ x: data.x ? data.x : (windowSize.responsiveWidth / 2) - 150, y: data.y ? data.y : (windowSize.responsiveHeight / 2) - 250 });
-
+    const [subFolderPosition, setSubFolderPosition] = useState({ x: position.x, y: position.y })
     const handleMouseDown = (e) => {
         const rect = e.target.getBoundingClientRect();
         const initialX = e.clientX - rect.left;
@@ -26,6 +27,7 @@ const FileExplorer = ({ ...data }) => {
             const newX = e.clientX - initialX;
             const newY = e.clientY - initialY;
             setPosition({ x: newX, y: newY });
+            setSubFolderPosition({ x: newX + 20, y: newY + 25 })
         };
 
         const handleMouseUp = () => {
@@ -38,14 +40,18 @@ const FileExplorer = ({ ...data }) => {
         window.addEventListener('mouseup', handleMouseUp);
     };
 
-    const handleClick = () => {
-        console.log('clicked')
+    const closeFileExplorer = () => {
+        fileExplorerReference.current.style.display = 'none'
     }
 
     useEffect(() => {
-
         if (typeof window !== undefined) {
-
+            if (data.subFolder) {
+                setPosition({
+                    x: fileExplorerReference.current.getBoundingClientRect().left + 20, // Set to previous x position
+                    y: fileExplorerReference.current.getBoundingClientRect().top + 25, // Set to previous y position
+                });
+            }
             setWindowSize({
                 responsiveWidth: window.innerWidth,
                 responsiveHeight: window.innerHeight
@@ -54,11 +60,11 @@ const FileExplorer = ({ ...data }) => {
         }
     }, [])
 
-
     return (
         <div className='file-explorer-container'>
             <div
                 className='file-explorer'
+                ref={fileExplorerReference}
                 draggable='true'
                 style={{
                     position: 'fixed',
@@ -80,7 +86,8 @@ const FileExplorer = ({ ...data }) => {
                             className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
-                            onClick={handleClick}
+                            onClick={closeFileExplorer}
+                            style={{ zIndex: '999999999' }}
                         />
                         <Image
                             src='/icons/minimize.png'
@@ -89,6 +96,7 @@ const FileExplorer = ({ ...data }) => {
                             className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
+                            style={{ zIndex: '999999999' }}
                         />
                         <Image
                             src='/icons/maximize.png'
@@ -97,6 +105,7 @@ const FileExplorer = ({ ...data }) => {
                             className='cursor-pointer'
                             alt='okay'
                             objectfit='contain'
+                            style={{ zIndex: '999999999' }}
                         />
                     </div>
                     <span className='file-title'>{data.title}</span>
@@ -104,9 +113,10 @@ const FileExplorer = ({ ...data }) => {
                         src='/icons/add.png'
                         width={20}
                         height={20}
-                        className='cursor-pointer p-absolute justify-center'
+                        className='add-project cursor-pointer p-absolute justify-center'
                         alt='okay'
                         objectfit='contain'
+                        style={{ display: data.subFolder ? 'none' : 'block' }}
                     />
                 </div>
                 <div className='folder-container d-flex'>

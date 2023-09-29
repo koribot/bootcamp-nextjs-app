@@ -23,17 +23,17 @@ const Navbar = () => {
 
   useEffect(() => {
     const color = getRandomColors(100)
-      let randomColorIndex = Math.floor(Math.random() * colorList.length)
-      setBackgroundColor(color)
-      console.log(backgroundColor)
+    let randomColorIndex = Math.floor(Math.random() * colorList.length)
+    setBackgroundColor(color)
+    console.log(backgroundColor)
     // return(()=>{
-      
+
     // })
-    
+
   }, [])
 
   return (
-    <nav className='d-flex justify-center width-full bg-skeleton bg-green text-white height-sm p-sticky' style={{background: backgroundColor, zIndex:'9999999999999'}}>
+    <nav className='d-flex justify-center width-full bg-skeleton bg-green text-white height-sm p-sticky' style={{ background: backgroundColor, zIndex: '9999999999999' }}>
       <div className='d-flex justify-even align-center gap-sm width-full'>
         <a href='/'>
           <Image
