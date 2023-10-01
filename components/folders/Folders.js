@@ -5,27 +5,27 @@ import '@/styles/components/folder.scss'
 
 const Folders = ({ contentData }) => {
 
-    const handleClick = (project) => {
-        // console.log(project)
-        contentData.openFileExplorer(project)
+    const handleClick = (data) => {
+        // console.log(data)
+        contentData.openFileExplorer(data)
     }
 
     return (
         <div className='grid-container'>
-            {contentData.content.map((project, index) => (
+            {contentData.content.map((data, index) => (
                 !contentData.subFolder ?
-                    <div key={index} onClick={() => handleClick(project)}>
+                    <div key={index} onClick={() => handleClick(data)}>
                         <Image
                             src='/icons/folders.png'
                             width={50}
                             height={50}
                             className='cursor-pointer'
-                            alt={project.description}
+                            alt={data.description}
                         />
-                        <p>{project.name}</p>
+                        <p>{data.name}</p>
                     </div>
                     :
-                    <div key={index}>{project.name}</div>
+                    <div key={index}>{data.name}</div>
 
 
             ))}

@@ -8,6 +8,7 @@ import Folders from '../folders/Folders'
 
 const FileExplorer = ({ ...data }) => {
     const fileExplorerReference = useRef(null);
+
     const [windowSize, setWindowSize] = useState({
         responsiveWidth: undefined,
         responsiveHeight: undefined
@@ -15,7 +16,7 @@ const FileExplorer = ({ ...data }) => {
     })
     const [isDragging, setIsDragging] = useState(false);
     const [position, setPosition] = useState({ x: data.x ? data.x : (windowSize.responsiveWidth / 2) - 150, y: data.y ? data.y : (windowSize.responsiveHeight / 2) - 250 });
-    const [subFolderPosition, setSubFolderPosition] = useState({ x: position.x, y: position.y })
+
     const handleMouseDown = (e) => {
         const rect = e.target.getBoundingClientRect();
         const initialX = e.clientX - rect.left;
@@ -26,7 +27,6 @@ const FileExplorer = ({ ...data }) => {
             const newX = e.clientX - initialX;
             const newY = e.clientY - initialY;
             setPosition({ x: newX, y: newY });
-            setSubFolderPosition({ x: newX + 20, y: newY + 25 })
         };
 
         const handleMouseUp = () => {
@@ -40,7 +40,8 @@ const FileExplorer = ({ ...data }) => {
     };
 
     const closeFileExplorer = () => {
-        fileExplorerReference.current.style.display = 'none'
+        // fileExplorerReference.current.style.display = 'none'
+        data.removeFromArrayOfFileExplorer(data)
     }
 
     useEffect(() => {
