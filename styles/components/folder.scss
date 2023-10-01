@@ -1,3 +1,8 @@
+.main-container {
+    position: absolute;
+    white-space: wrap;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -20,4 +25,66 @@
     text-align: center;
     padding: 10px;
     /* Optional padding */
+}
+
+/* dataItem.scss */
+
+/* Style for the entire container */
+.data-item {
+    padding: 10px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+/* Style for the data name */
+.data-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Style for the data description */
+.data-description {
+    width: 95%;
+    white-space: wrap;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100px;
+    border: solid 0.5px black;
+}
+
+/* Style for the link (iframe) */
+.data-link {
+    width: 50%;
+    white-space: wrap;
+    border: none;
+    overflow: hidden;
+    object-fit: contain;
+    text-overflow: ellipsis;
+}
+
+.data-link-socials {
+    width: 80%;
+
+    border: none;
+    overflow: hidden;
+    object-fit: contain;
+
+}
+
+.folder-container {
+    position: absolute;
+    top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    .folder-icon {
+        margin: 20px;
+    }
 }

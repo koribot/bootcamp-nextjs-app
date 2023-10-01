@@ -3,7 +3,22 @@
 import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import React from 'react'
 import { useState } from 'react'
-const page = () => {
+
+
+const socialLists = [
+    {
+        name: 'Facebook', description: '@Dilaw',
+        link: 'https://www.facebook.com/wcawasa/',
+
+    },
+    {
+        name: 'Instagram', description: '@wcawasa',
+        link: 'https://www.instagram.com/wcawasa/',
+
+    },
+
+]
+const Socials = () => {
 
     const [fileExplorerContent, setFileExplorerContent] = useState([])
     const [isRootFileExplorer, setIsRootFileExplorer] = useState(true)
@@ -44,10 +59,11 @@ const page = () => {
         <>
             {isRootFileExplorer
                 &&
-                <FileExplorer content={[{ name: 'Facebook', description: '@Dilaw', link: 'www.facebook.com' }]}
+                <FileExplorer content={socialLists}
                     title='Socials' openFileExplorer={openFileExplorer}
                     subFolder={false}
                     removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
+                    explorerTitle='socials'
                 />
             }
             {fileExplorerContent.map((content, index) => (
@@ -61,6 +77,7 @@ const page = () => {
                         subFolder={true}
                         removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
                         index={index}
+                        explorerTitle='socials'
                     />
                 )
             ))}
@@ -69,4 +86,4 @@ const page = () => {
 }
 
 
-export default page
+export default Socials

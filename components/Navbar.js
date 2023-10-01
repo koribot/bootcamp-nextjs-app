@@ -25,7 +25,7 @@ const Navbar = () => {
     const color = getRandomColors(100)
     let randomColorIndex = Math.floor(Math.random() * colorList.length)
     setBackgroundColor(color)
-    console.log(backgroundColor)
+    // console.log(backgroundColor)
     // return(()=>{
 
     // })
