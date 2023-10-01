@@ -34,7 +34,7 @@ $animation-opacity: 0.3;
     animation: spin $animation-spinner-speed linear infinite;
     /* Define the spinning animation */
     transform-origin: center center;
-    border-radius: 45%;
+    border-radius: 40%;
     /* Set the transform origin to the center of each element */
     opacity: $animation-opacity
 }
