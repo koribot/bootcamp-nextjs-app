@@ -3,17 +3,17 @@ import React from 'react'
 import FileExplorer from '../fileExplorer/FileExplorer'
 import '@/styles/components/folder.scss'
 
-const Folders = ({ projectData }) => {
+const Folders = ({ contentData }) => {
 
     const handleClick = (project) => {
         // console.log(project)
-        projectData.openFileExplorer(project)
+        contentData.openFileExplorer(project)
     }
 
     return (
         <div className='grid-container'>
-            {projectData.content.map((project, index) => (
-                !projectData.subFolder ?
+            {contentData.content.map((project, index) => (
+                !contentData.subFolder ?
                     <div key={index} onClick={() => handleClick(project)}>
                         <Image
                             src='/icons/folders.png'

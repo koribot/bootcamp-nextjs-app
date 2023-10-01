@@ -8,7 +8,6 @@ import Folders from '../folders/Folders'
 
 const FileExplorer = ({ ...data }) => {
     const fileExplorerReference = useRef(null);
-
     const [windowSize, setWindowSize] = useState({
         responsiveWidth: undefined,
         responsiveHeight: undefined
@@ -122,7 +121,7 @@ const FileExplorer = ({ ...data }) => {
                 <div className='folder-container d-flex'>
                     <div className='folder-icon'>
 
-                        <Folders projectData={data} />
+                        <Folders contentData={data} />
                     </div>
                 </div>
             </div>
