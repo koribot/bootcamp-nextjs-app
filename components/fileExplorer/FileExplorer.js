@@ -44,6 +44,14 @@ const FileExplorer = ({ ...data }) => {
         data.removeFromArrayOfFileExplorer(data)
     }
 
+    const maximizeExplorer = () => {
+        console.log(windowSize.responsiveWidth)
+        if (typeof window !== undefined) {
+            fileExplorerReference.current.style.width = `${windowSize.responsiveWidth - 50}px`
+            fileExplorerReference.current.style.height = `${windowSize.responsiveHeight - 300}px`
+        }
+    }
+
     useEffect(() => {
         if (typeof window !== undefined) {
             if (data.subFolder) {
@@ -106,6 +114,7 @@ const FileExplorer = ({ ...data }) => {
                             alt='okay'
                             objectfit='contain'
                             style={{ zIndex: '999999999' }}
+                            onClick={maximizeExplorer}
                         />
                     </div>
                     <span className='file-title'>{data.title}</span>
