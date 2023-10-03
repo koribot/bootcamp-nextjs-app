@@ -4,7 +4,7 @@ import FileExplorer from '../fileExplorer/FileExplorer'
 import '@/styles/components/folder.scss'
 
 const Folders = ({ contentData }) => {
-    console.log(contentData.title)
+
     const handleClick = (data) => {
         // console.log(data)
         contentData.openFileExplorer(data)
@@ -26,26 +26,26 @@ const Folders = ({ contentData }) => {
                             <p>{data.name}</p>
                         </div>
                         :
-                        <>
+                        <div key={index}>
                             <div key={index} className='data-item'>
                                 <p className='data-name'>{data.name}</p>
                                 {contentData.explorerTitle === 'projects' ?
                                     <>
-                                        <span className='data-description'>{data.description}</span>
+                                        <span key={index} className='data-description' >{data.description}</span>
                                         <a href={data.link} target='_blank' className='data-link style-none'><h4>Project Link</h4>{data.link}</a>
                                         <a href={data.repoLink} target='_blank' className='data-link style-none'><h4>Repo Link</h4>{data.repoLink}</a>
                                         <a href={data.imageLink} target='_blank' >View Image</a>
                                     </>
                                     :
                                     <>
-                                        <a href={data.link} target='_blank' className='data-description style-none'>{data.description}</a>
+                                        <a href={data.link} target='_blank' className='style-none'>{data.description}</a>
                                     </>
                                 }
 
 
                             </div>
                             {/* <Image src={data.imageLink} alt={data.name} width={200} height={200} objectFit='fill' /> */}
-                        </>
+                        </div>
 
                 ))}
 

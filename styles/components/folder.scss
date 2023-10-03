@@ -18,6 +18,13 @@
     /* Optional padding */
 }
 
+
+.flex-container{
+    display: flex;  
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
 .grid-item {
     display: flex;
     flex-direction: column;

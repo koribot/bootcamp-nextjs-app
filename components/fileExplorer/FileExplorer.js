@@ -45,7 +45,7 @@ const FileExplorer = ({ ...data }) => {
     }
 
     const maximizeExplorer = () => {
-        console.log(windowSize.responsiveWidth)
+        // console.log(windowSize.responsiveWidth)
         if (typeof window !== undefined) {
             fileExplorerReference.current.style.width = `${windowSize.responsiveWidth - 50}px`
             fileExplorerReference.current.style.height = `${windowSize.responsiveHeight - 300}px`
