@@ -18,6 +18,7 @@ const getRandomColors = (maxBrightness) => {
 
     } while (brightness >= maxBrightness);
 
+
     return color;
 }
 

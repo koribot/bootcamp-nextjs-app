@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import '../animation/GenerateSquareSpin.scss'
 import generateElement from './helpers/generateElement';
 
-function GenerateShapeSpin({ length = 1, typeOfElement = 'span', shape = 'circle', vw = '70', vh = '70' }) {
+function GenerateShapeSpin({ length = 1, typeOfElement = 'span', shape = 'circle', vw = '70', vh = '70', maxBrightness = 0 }) { // assigning default values
     // Initialize state to store generated elements
     const [generatedElements, setGeneratedElements] = useState([]);
 
     useEffect(() => {
-        const newElement = generateElement(length, typeOfElement, shape, vw, vh)
+        const newElement = generateElement(length, typeOfElement, shape, vw, vh, maxBrightness)
         setGeneratedElements(newElement)
     }, []);
 

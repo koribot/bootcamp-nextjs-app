@@ -38,7 +38,6 @@ const Socials = () => {
             });
         }
 
-        console.log(fileExplorerContent)
     };
 
 
