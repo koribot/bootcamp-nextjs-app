@@ -1,5 +1,6 @@
 'use client'
 
+
 import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import React from 'react'
 import { useState, useEffect } from 'react'
@@ -65,6 +66,42 @@ const Projects = () => {
             return updatedContentArray;
         });
     };
+
+
+    // async function fetchData() {
+    //     const postData = {
+    //         name: 'eBextractor',
+    //         description: 'Allows you to extract/scrape Data from ebay and provide pricing insights, I used python with Flask as backend',
+    //         link: 'https://chrome.google.com/webstore/detail/ebextractor-ebay-extracto/ikfpolbfdnihjnadfodochmagdagpbik',
+    //         repoLink: 'Mock Link',
+    //         imageLink: 'https://lh3.googleusercontent.com/5DnJ9_nEJtyByOTzjOu2hGWgFp5Jw9KUnSAD8vWcjmwjkd-JpTd6HAdJOmcrA8iabJTNnpjakchO01TE8GnhnYMn=w640-h400-e365-rj-sc0x00ffffff',
+    //     };
+    //     try {
+    //         const response = await fetch('/api/project', {
+    //             method: 'POST', // Specify the HTTP method as GET
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(postData), // Convert the JSON object to a string
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+
+    //         const data = await response.json();
+    //         console.log(data);
+    //         return data;
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //         return null;
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     const b = fetchData()
+    //     console.log(b)
+    // }, [])
 
 
     return (
