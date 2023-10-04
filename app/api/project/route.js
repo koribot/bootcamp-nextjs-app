@@ -1,52 +1,35 @@
 // // pages/api/addProject.js
 
 import { PrismaClient } from '@prisma/client';
-
-// export default async function AddProject(req, res) {
-//     if (req.method === 'POST') {
-//         const prisma = new PrismaClient();
-
-//         try {
-//             const { name, description, link, repoLink, imageLink } = req.body;
-
-//             // Create a new project using Prisma
-//             const newProject = await prisma.projects.create({
-//                 data: {
-//                     name,
-//                     description,
-//                     link,
-//                     repoLink,
-//                     imageLink,
-//                 },
-//             });
-
-//             res.status(201).json(newProject);
-//         } catch (error) {
-//             console.error(error);
-//             res.status(500).json({ error: 'Error adding project' });
-//         } finally {
-//             await prisma.$disconnect();
-//         }
-//     } else {
-//         res.status(405).json({ error: 'Method not allowed' });
-//     }
-// }
-
-
 import { NextResponse, NextRequest } from "next/server";
 
 
-export function GET(NextRequest) {
-    console.log(NextRequest.method)
-    return new NextResponse(NextRequest.method)
+const prisma = new PrismaClient()
+
+export async function GET() {
+    try {
+        const projects = await prisma.Projects.findMany();
+
+        // Respond with a JSON object   
+        return new NextResponse(JSON.stringify(projects), {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+    } catch (error) {
+        console.error('Error fetching data:', error);
+
+        // Respond with an error message and a 500 status code
+        return new NextResponse('Error fetching data', {
+            status: 500,
+        });
+    } finally {
+        await prisma.$disconnect();
+    }
 }
 export async function POST(req) {
     const requestBody = await req.text();
     const jsonData = JSON.parse(requestBody);
-
-
-    const prisma = new PrismaClient();
-
     try {
         const { name, description, link, repoLink, imageLink } = jsonData;
 
