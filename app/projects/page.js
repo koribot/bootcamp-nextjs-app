@@ -2,6 +2,7 @@
 
 
 import FileExplorer from '@/components/fileExplorer/FileExplorer'
+import Modal from '@/components/modal/Modal'
 import { retrieveProjects } from '@/services/DB_Requests/GET/retriveProjects'
 import React from 'react'
 import { useState, useEffect } from 'react'
@@ -36,6 +37,8 @@ const Projects = () => {
     const [fileExplorerContent, setFileExplorerContent] = useState([])
     const [isRootFileExplorer, setIsRootFileExplorer] = useState(true)
     const [projectLists, setProjectLists] = useState([])
+    const [modalOpen, setModalOpen] = useState(false);
+
 
     const openFileExplorer = (data) => {
         if (!fileExplorerContent.some((content) => content.name === data.name)) {
@@ -99,6 +102,14 @@ const Projects = () => {
     //     }
     // }
 
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
 
     useEffect(() => {
         const GET = async () => {
@@ -112,6 +123,7 @@ const Projects = () => {
 
     return (
         <>
+            {/* initial FileExplorer ---- ROOT */}
             {isRootFileExplorer
                 &&
                 <FileExplorer content={projectLists}
@@ -120,10 +132,34 @@ const Projects = () => {
                     subFolder={false}
                     removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
                     explorerTitle='projects'
+                    openModal={openModal}
                 />
             }
+            <Modal isOpen={modalOpen} onClose={closeModal} >
+                <form className='d-flex fd-column gap-10px'>
+                    <label>Project Name</label>
+                    <input
+                        type="text"
+                        required='true'
+                    />
+                    <label>Production Link:</label>
+                    <input
+                        type="text"
+                    />
+                    <label>Repository Link</label>
+                    <input
+                        type="text"
+                    />
+                    <label>Image Link</label>
+                    <input
+                        type="text"
+                    />
+                    <button>Add Project</button>
+                </form>
+            </Modal>
+
+            {/* instance of FileExplorer ---- subFolders or sub fileExplorer */}
             {fileExplorerContent.map((content, index) => (
-                // Check if content is not null before rendering FileExplorer
                 !content == '' && (
                     <FileExplorer
                         key={index}
@@ -134,6 +170,7 @@ const Projects = () => {
                         removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
                         index={index}
                         explorerTitle='projects'
+                        openModal={openModal}
                     />
                 )
             ))}

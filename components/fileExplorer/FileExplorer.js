@@ -126,6 +126,7 @@ const FileExplorer = ({ ...data }) => {
                         alt='okay'
                         objectfit='contain'
                         style={{ display: data.subFolder ? 'none' : 'block' }}
+                        onClick={data.openModal}
                     />
                 </div>
                 {/* <div className='folder-container d-flex'>
