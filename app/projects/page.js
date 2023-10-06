@@ -110,6 +110,10 @@ const Projects = () => {
         setModalOpen(false);
     };
 
+    const addToProjects = (e) => {
+        e.preventDefault();
+    }
+
 
     useEffect(() => {
         const GET = async () => {
@@ -136,26 +140,18 @@ const Projects = () => {
                 />
             }
             <Modal isOpen={modalOpen} onClose={closeModal} >
-                <form className='d-flex fd-column gap-10px'>
+                <form className='d-flex fd-column gap-10px' onSubmit={addToProjects}>
                     <label>Project Name</label>
-                    <input
-                        type="text"
-                        required='true'
-                    />
+                    <input type="text" required={true} />
                     <label>Production Link:</label>
-                    <input
-                        type="text"
-                    />
+                    <input type="text" required={true} />
                     <label>Repository Link</label>
-                    <input
-                        type="text"
-                    />
+                    <input type="text" required={true} />
                     <label>Image Link</label>
-                    <input
-                        type="text"
-                    />
-                    <button>Add Project</button>
+                    <input type="text" required={true} />
+                    <button type='submit'>Add Project</button>
                 </form>
+
             </Modal>
 
             {/* instance of FileExplorer ---- subFolders or sub fileExplorer */}
