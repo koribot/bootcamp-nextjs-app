@@ -5,17 +5,11 @@
     position: relative;
     display: flex;
     justify-content: center;
-    /* Horizontally center */
     align-items: flex-start;
-    /* Vertically center */
-
-    /* Set the height to 100% of the viewport height */
 }
 
 .file-explorer {
     z-index: 99;
-    /* Styles for your file explorer content */
-    /* You can adjust the width, height, background, etc. here */
     min-width: 25%;
     min-height: 40%;
     background-color: #000000;
