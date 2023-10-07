@@ -31,7 +31,6 @@ import { useState, useEffect } from 'react'
 
 // ]
 
-
 const Projects = () => {
 
     const [fileExplorerContent, setFileExplorerContent] = useState([])
@@ -119,6 +118,7 @@ const Projects = () => {
         const GET = async () => {
             const b = await retrieveProjects()
             setProjectLists(b)
+
         }
         GET()
 

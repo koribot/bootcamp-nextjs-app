@@ -1,10 +1,10 @@
 import AdminModal from '@/components/modal/Modal'
 import React from 'react'
 
-const page = () => {
+const Admin = () => {
     return (
         <AdminModal />
     )
 }
 
-export default page
+export default Admin

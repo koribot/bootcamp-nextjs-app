@@ -3,7 +3,8 @@ import FileExplorer from '../fileExplorer/FileExplorer';
 const displayOptions = [
   { displayName: 'Projects', link: '/projects' },
   { displayName: 'Github', link: 'https://github.com/koribot' },
-  { displayName: 'Socials', link: '/socials' }
+  { displayName: 'Socials', link: '/socials' },
+  { displayName: 'About Me', link: '/about-me' }
 ];
 
 
