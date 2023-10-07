@@ -111,6 +111,7 @@ const Projects = () => {
 
     const addToProjects = (e) => {
         e.preventDefault();
+        setModalOpen(false);
     }
 
 
@@ -139,17 +140,22 @@ const Projects = () => {
                     openModal={openModal}
                 />
             }
-            <Modal isOpen={modalOpen} onClose={closeModal} >
+            <Modal
+                isOpen={modalOpen} onClose={closeModal}
+                closebutton={false}
+            >
                 <form className='d-flex fd-column gap-10px' onSubmit={addToProjects}>
                     <label>Project Name</label>
-                    <input type="text" required={true} />
+                    <input type="text" required={true} className='style-none' />
+                    <label>Description</label>
+                    <textarea required={true} style={{ height: '100px' }}></textarea>
                     <label>Production Link:</label>
                     <input type="text" required={true} />
                     <label>Repository Link</label>
                     <input type="text" required={true} />
                     <label>Image Link</label>
                     <input type="text" required={true} />
-                    <button type='submit'>Add Project</button>
+                    <button className='bg-skeleton text-white cursor-pointer' type='submit'>Add Project</button>
                 </form>
 
             </Modal>
