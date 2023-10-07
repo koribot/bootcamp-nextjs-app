@@ -11,32 +11,30 @@ import getRandomColors from './animation/helpers/getRandomColors';
 //   { displayName: 'Socials', link: '/' }
 // ];
 
-const colorList = [
-  'green',
-  'blue',
-  'gray',
-]
-
 const Navbar = () => {
 
   const [backgroundColor, setBackgroundColor] = useState('skeleton')
+  const [backgroundColor2, setBackgroundColor2] = useState('#2ec088')
+  const [backgroundColor3, setBackgroundColor3] = useState('#ffff')
 
   useEffect(() => {
-    const color = getRandomColors(50)
-    let randomColorIndex = Math.floor(Math.random() * colorList.length)
+    const color = getRandomColors(100)
+    const color2 = getRandomColors(40)
+    const color3 = getRandomColors(100)
+
     setTimeout(() => {
       setBackgroundColor(color)
+      setBackgroundColor2(color2)
+      setBackgroundColor3(color3)
     }, 500);
-
-    // console.log(backgroundColor)
-    // return(()=>{
-
-    // })
-
   }, [])
 
   return (
-    <nav className='d-flex justify-center width-full bg-skeleton bg-green text-white height-sm p-sticky' style={{ background: backgroundColor, zIndex: '9999999999999' }}>
+    <nav className='d-flex justify-center width-full bg-skeleton text-white height-sm p-sticky'
+      style={{
+        background: `linear-gradient(45deg, ${backgroundColor} 25%, ${backgroundColor2} 50%, ${backgroundColor3} 75%)`,
+        zIndex: '9999999999999',
+      }}>
       <div className='d-flex justify-even align-center gap-sm width-full'>
         <a href='/'>
           <Image
