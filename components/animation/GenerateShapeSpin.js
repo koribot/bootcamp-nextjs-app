@@ -3,25 +3,26 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import '../animation/GenerateSquareSpin.scss'
 import generateElement from './helpers/generateElement';
+import { useRouter, usePathname } from 'next/navigation';
 
 function GenerateShapeSpin({ length = 1, typeOfElement = 'span', shape = 'circle', vw = '70', vh = '70', maxBrightness = 0 }) { // assigning default values
     // Initialize state to store generated elements
     const [generatedElements, setGeneratedElements] = useState([]);
+    const pathname = usePathname().slice(1)
+
 
     useEffect(() => {
         const newElement = generateElement(length, typeOfElement, shape, vw, vh, maxBrightness)
         setGeneratedElements(newElement)
+        console.log(pathname)
     }, []);
 
     return (
-        <>
+        <div style={{ display: pathname === 'about-me' ? 'none' : 'block' }}>
             {generatedElements.map((element, index) => (
-                <React.Fragment key={index}>{element}</React.Fragment>
+                element
             ))}
-            <div>
-
-            </div>
-        </>
+        </div>
     );
 }
 
