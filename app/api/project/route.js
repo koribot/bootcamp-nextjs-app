@@ -1,7 +1,7 @@
 // // pages/api/addProject.js
 
 import { PrismaClient } from '@prisma/client';
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 
 const prisma = new PrismaClient()
@@ -10,7 +10,6 @@ export async function GET() {
     try {
         const projects = await prisma.Projects.findMany();
 
-        // Respond with a JSON object   
         return new NextResponse(JSON.stringify(projects), {
             headers: {
                 'Content-Type': 'application/json',
@@ -19,7 +18,6 @@ export async function GET() {
     } catch (error) {
         console.error('Error fetching data:', error);
 
-        // Respond with an error message and a 500 status code
         return new NextResponse('Error fetching data', {
             status: 500,
         });
@@ -33,7 +31,6 @@ export async function POST(req) {
     try {
         const { name, description, link, repoLink, imageLink } = jsonData;
 
-        // Create a new project using Prisma
         const newProject = await prisma.projects.create({
             data: {
                 name,
@@ -48,7 +45,7 @@ export async function POST(req) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            status: 201, // Set the status code to 201 Created
+            status: 201,
         });
 
         return response;
@@ -58,7 +55,7 @@ export async function POST(req) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            status: 500, // Set the status code to 500 Internal Server Error
+            status: 500,
         });
 
         return errorResponse;
