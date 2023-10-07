@@ -8,11 +8,9 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Semi-transparent background */
     justify-content: center;
     align-items: center;
     z-index: 1000000000000000;
-    /* Ensure it appears on top */
 }
 
 .admin-modal.open {
