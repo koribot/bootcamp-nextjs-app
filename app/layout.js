@@ -38,8 +38,8 @@ export default function RootLayout({ children }) {
             length={200}
             typeOfElement='span'
             shape='random'
-            vw={80}
-            vh={80}
+            vw={70}
+            vh={60}
             maxBrightness={500}
             opacity={35}
           />
