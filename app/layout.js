@@ -38,10 +38,10 @@ export default function RootLayout({ children }) {
             length={200}
             typeOfElement='span'
             shape='random'
-            vw={70}
+            vw={75}
             vh={60}
             maxBrightness={500}
-            opacity={35}
+            opacity={10}
           />
         </section>
         <Dock />
