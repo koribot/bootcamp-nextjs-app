@@ -34,7 +34,15 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <section>
-          <GenerateShapeSpin length={100} typeOfElement='span' shape='random' vw='70' vh='60' maxBrightness={200} />
+          <GenerateShapeSpin
+            length={200}
+            typeOfElement='span'
+            shape='random'
+            vw={80}
+            vh={80}
+            maxBrightness={500}
+            opacity={35}
+          />
         </section>
         <Dock />
       </body>
