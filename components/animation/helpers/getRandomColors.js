@@ -4,13 +4,11 @@ const getRandomColors = (maxBrightness) => {
     let brightness = 0;
 
     do {
-        // Generate a random color
         color = '#';
         for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
 
-        // Calculate the brightness of the color
         const r = parseInt(color.slice(1, 3), 16);
         const g = parseInt(color.slice(3, 5), 16);
         const b = parseInt(color.slice(5, 7), 16);
