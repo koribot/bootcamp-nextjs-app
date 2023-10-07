@@ -143,6 +143,8 @@ const Projects = () => {
             <Modal
                 isOpen={modalOpen} onClose={closeModal}
                 closebutton={false}
+                opacity={0.6}
+                backgroundColor='#000000'
             >
                 <form className='d-flex fd-column gap-10px' onSubmit={addToProjects}>
                     <label>Project Name</label>
