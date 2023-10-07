@@ -13,7 +13,7 @@ const generateElement = (length, typeOfElement, shape, vw, vh, maxBrightness) =>
         const color = getRandomColors(maxBrightness)
         const newElement = React.createElement(typeOfElement, {
             key: index,
-            className: `${shape === 'random' ? randomShape : shape} cursor-pointer`, style: { left: position.left, top: position.top, borderColor: color },
+            className: `${shape === 'random' ? randomShape : shape}`, style: { left: position.left, top: position.top, borderColor: color },
 
         })
         elements.push(newElement);
