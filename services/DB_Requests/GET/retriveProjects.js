@@ -1,7 +1,7 @@
 export const retrieveProjects = async () => {
     try {
         const response = await fetch('/api/project', {
-            method: 'GET', // Specify the HTTP method as GET
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
