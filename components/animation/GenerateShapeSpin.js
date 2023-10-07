@@ -14,7 +14,6 @@ function GenerateShapeSpin({ length = 1, typeOfElement = 'span', shape = 'circle
     useEffect(() => {
         const newElement = generateElement(length, typeOfElement, shape, vw, vh, maxBrightness)
         setGeneratedElements(newElement)
-        console.log(pathname)
     }, []);
 
     return (
