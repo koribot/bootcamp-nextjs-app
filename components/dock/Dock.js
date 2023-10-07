@@ -1,5 +1,4 @@
 import '@/styles/components/dock.scss'
-import FileExplorer from '../fileExplorer/FileExplorer';
 const displayOptions = [
   { displayName: 'Projects', link: '/projects' },
   { displayName: 'Github', link: 'https://github.com/koribot' },
@@ -10,7 +9,7 @@ const displayOptions = [
 
 const Dock = () => {
   return (
-    <div className="d-flex width-full p-fixed bottom-0 justify-center" style={{ zIndex: '9999' }}>
+    <div className="d-flex width-full p-fixed bottom-0 justify-center" style={{ zIndex: '9999999999999' }}>
       <div className="dock-bg d-flex fd-row width-half margin-sm padding-sm border-radius-smooth">
 
         <ul className='d-flex justify-end align-center gap-50px style-none '>
