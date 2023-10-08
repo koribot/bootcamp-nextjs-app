@@ -9,6 +9,9 @@ const Folders = ({ contentData }) => {
         // console.log(data)
         contentData.openFileExplorer(data)
     }
+    const mockChange = () => {
+
+    }
 
     return (
         <div className='folder-container'>
@@ -31,7 +34,7 @@ const Folders = ({ contentData }) => {
                                 <p className='data-name'>{data.name}</p>
                                 {contentData.explorerTitle === 'projects' ?
                                     <>
-                                        <span key={index} className='data-description' >{data.description}</span>
+                                        <textarea style={{ resize: 'vertical', width: '100%' }} key={index} className='data-description' value={data.description} onChange={mockChange} />
                                         <a href={data.link} target='_blank' className='data-link text-black'><h4>Project Link</h4></a>
                                         <a href={data.repoLink} target='_blank' className='data-link text-black'><h4>Repo Link</h4></a>
                                         <a href={data.imageLink} target='_blank' className='data-link text-black'><h4>View Image</h4></a>
