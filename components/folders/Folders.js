@@ -32,9 +32,9 @@ const Folders = ({ contentData }) => {
                                 {contentData.explorerTitle === 'projects' ?
                                     <>
                                         <span key={index} className='data-description' >{data.description}</span>
-                                        <a href={data.link} target='_blank' className='data-link style-none'><h4>Project Link</h4>{data.link}</a>
-                                        <a href={data.repoLink} target='_blank' className='data-link style-none'><h4>Repo Link</h4>{data.repoLink}</a>
-                                        <a href={data.imageLink} target='_blank' >View Image</a>
+                                        <a href={data.link} target='_blank' className='data-link text-black'><h4>Project Link</h4></a>
+                                        <a href={data.repoLink} target='_blank' className='data-link text-black'><h4>Repo Link</h4></a>
+                                        <a href={data.imageLink} target='_blank' className='data-link text-black'><h4>View Image</h4></a>
                                     </>
                                     :
                                     <>

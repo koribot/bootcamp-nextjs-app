@@ -19,10 +19,11 @@
 }
 
 
-.flex-container{
-    display: flex;  
+.flex-container {
+    display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .grid-item {
@@ -43,7 +44,6 @@
     position: relative;
     flex-direction: column;
     gap: 20px;
-
 }
 
 /* Style for the data name */
