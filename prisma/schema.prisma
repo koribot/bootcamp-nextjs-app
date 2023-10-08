@@ -12,7 +12,7 @@ model Projects {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
   name        String
-  description String
+  description String   @db.VarChar(2000)
   link        String
   repoLink    String
   imageLink   String
