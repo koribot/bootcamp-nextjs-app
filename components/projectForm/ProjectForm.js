@@ -1,5 +1,6 @@
 'use client'
 
+import postProject from '@/services/DB_Requests/Post/postProject';
 import React, { useState } from 'react'
 
 
@@ -7,9 +8,9 @@ const ProjectForm = ({ closeModal }) => {
 
 
     const [formData, setFormData] = useState({
-        projectName: '',
+        name: '',
         description: '',
-        productionLink: '',
+        link: '',
         repoLink: '',
         imageLink: '',
     });
@@ -24,7 +25,7 @@ const ProjectForm = ({ closeModal }) => {
     const addToProjects = (e) => {
         e.preventDefault();
         closeModal()
-        console.log(formData)
+        postProject(formData)
     }
 
 
@@ -34,7 +35,7 @@ const ProjectForm = ({ closeModal }) => {
             <label>Project Name</label>
             <input type="text" required={true} className='style-none'
                 onChange={handleChange}
-                name='projectName'
+                name='name'
             />
 
             <label>Description</label>
@@ -47,7 +48,7 @@ const ProjectForm = ({ closeModal }) => {
             <label>Production Link:</label>
             <input type="url" required={true}
                 onChange={handleChange}
-                name='productionLink'
+                name='link'
             />
 
             <label>Repository Link</label>

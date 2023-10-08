@@ -71,35 +71,6 @@ const Projects = () => {
     };
 
 
-    // async function addProject() {
-    //     const postData = {
-    //         name: 'eBay HTML Parser',
-    //         description: 'parse html of ebay search result and return list of products',
-    //         link: 'wcawasa.pythonanywhere.com',
-    //         repoLink: 'Mock Link',
-    //         imageLink: 'https://lh3.googleusercontent.com/5DnJ9_nEJtyByOTzjOu2hGWgFp5Jw9KUnSAD8vWcjmwjkd-JpTd6HAdJOmcrA8iabJTNnpjakchO01TE8GnhnYMn=w640-h400-e365-rj-sc0x00fffff'
-    //     }
-    //     try {
-    //         const response = await fetch('/api/project', {
-    //             method: 'POST', // Specify the HTTP method as GET
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(postData), // Convert the JSON object to a string
-    //         });
-
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok');
-    //         }
-
-    //         const data = await response.json();
-    //         console.log(data);
-    //         return data;
-    //     } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //         return null;
-    //     }
-    // }
 
     const openModal = () => {
         setModalOpen(true);
@@ -137,7 +108,7 @@ const Projects = () => {
             }
             <Modal
                 isOpen={modalOpen} onClose={closeModal}
-                closebutton={false}
+                closebutton={true}
                 opacity={0.6}
                 backgroundColor='#000000'
             >
