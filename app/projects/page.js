@@ -3,6 +3,7 @@
 
 import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import Modal from '@/components/modal/Modal'
+import ProjectForm from '@/components/projectForm/ProjectForm'
 import { retrieveProjects } from '@/services/DB_Requests/GET/retriveProjects'
 import React from 'react'
 import { useState, useEffect } from 'react'
@@ -37,7 +38,6 @@ const Projects = () => {
     const [isRootFileExplorer, setIsRootFileExplorer] = useState(true)
     const [projectLists, setProjectLists] = useState([])
     const [modalOpen, setModalOpen] = useState(false);
-
 
     const openFileExplorer = (data) => {
         if (!fileExplorerContent.some((content) => content.name === data.name)) {
@@ -109,11 +109,6 @@ const Projects = () => {
         setModalOpen(false);
     };
 
-    const addToProjects = (e) => {
-        e.preventDefault();
-        setModalOpen(false);
-    }
-
 
     useEffect(() => {
         const GET = async () => {
@@ -146,19 +141,7 @@ const Projects = () => {
                 opacity={0.6}
                 backgroundColor='#000000'
             >
-                <form className='d-flex fd-column gap-10px' onSubmit={addToProjects}>
-                    <label>Project Name</label>
-                    <input type="text" required={true} className='style-none' />
-                    <label>Description</label>
-                    <textarea required={true} style={{ height: '100px' }}></textarea>
-                    <label>Production Link:</label>
-                    <input type="text" required={true} />
-                    <label>Repository Link</label>
-                    <input type="text" required={true} />
-                    <label>Image Link</label>
-                    <input type="text" required={true} />
-                    <button className='bg-skeleton text-white cursor-pointer' type='submit'>Add Project</button>
-                </form>
+                <ProjectForm closeModal={closeModal} />
 
             </Modal>
 
