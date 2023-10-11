@@ -1,4 +1,4 @@
-export const retrieveProjects = async () => {
+export const retriveProjectRequest = async () => {
     try {
         const response = await fetch('/api/projects', {
             method: 'GET',
@@ -18,3 +18,5 @@ export const retrieveProjects = async () => {
         return null;
     }
 }
+
+export default retriveProjectRequest

@@ -1,6 +1,6 @@
 'use client'
 
-import postProject from '@/services/DB_Requests/Post/postProject';
+import postProjectRequest from '@/services/DB_Requests/Post/postProjectRequest';
 import React, { useState } from 'react'
 
 
@@ -22,10 +22,11 @@ const ProjectForm = ({ closeModal }) => {
             [name]: value,
         });
     };
-    const addToProjects = (e) => {
+    const addToProjects = async (e) => {
         e.preventDefault();
+        window.location.reload()
         closeModal()
-        postProject(formData)
+        await postProjectRequest({ formData, purpose: "ADD-PROJECT" })
     }
 
 

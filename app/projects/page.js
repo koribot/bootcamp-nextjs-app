@@ -4,9 +4,11 @@
 import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import Modal from '@/components/modal/Modal'
 import ProjectForm from '@/components/projectForm/ProjectForm'
-import { retrieveProjects } from '@/services/DB_Requests/GET/retriveProjects'
+import { retriveProjectRequest } from '@/services/DB_Requests/GET/retriveProjectRequest'
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { deleteProjectRequest } from '@/services/DB_Requests/Delete/deleteProjectRequest';
+
 
 // const projectLists = [
 //     {
@@ -79,19 +81,25 @@ const Projects = () => {
 
     const closeModal = () => {
         setModalOpen(false);
+
     };
 
+    const handleDeleteProject = async (data) => {
+        const id = data.id
+        await deleteProjectRequest({ id, purpose: 'DELETE-PROJECT' })
+        window.location.reload()
+    }
 
     useEffect(() => {
         const GET = async () => {
-            const b = await retrieveProjects()
+            const b = await retriveProjectRequest()
             setProjectLists(b)
 
         }
         GET()
 
-    }, [])
 
+    }, [])
 
     return (
         <>
@@ -106,6 +114,7 @@ const Projects = () => {
                     removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
                     explorerTitle='projects'
                     openModal={openModal}
+                    handleDeleteProject={handleDeleteProject}
                 />
             }
             <Modal
@@ -131,6 +140,7 @@ const Projects = () => {
                         index={index}
                         explorerTitle='projects'
                         openModal={openModal}
+
                     />
                 )
             ))}

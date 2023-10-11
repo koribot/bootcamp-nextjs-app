@@ -9,7 +9,6 @@ import { Niconne } from 'next/font/google'
 
 
 const FileExplorer = ({ ...data }) => {
-
 	const fileExplorerReference = useRef(null);
 	const { data: session } = useSession()
 
@@ -136,6 +135,7 @@ const FileExplorer = ({ ...data }) => {
 							onClick={data.openModal}
 						/>
 					}
+
 				</div>
 				{/* <div className='folder-container d-flex'>
                     <div className='folder-icon'> */}
