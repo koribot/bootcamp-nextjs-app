@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import '../components/animation/GenerateSquareSpin.scss'
+import '@/components/animation/GenerateSquareSpin.scss'
 import getRandomColors from './animation/helpers/getRandomColors';
+import { useSession } from "next-auth/react"
 
 // const displayOptions = [
 //   { displayName: 'Projects', link: '/projects' },
@@ -16,6 +17,10 @@ const Navbar = () => {
   const [backgroundColor, setBackgroundColor] = useState('skeleton')
   const [backgroundColor2, setBackgroundColor2] = useState('#2ec088')
   const [backgroundColor3, setBackgroundColor3] = useState('#ffff')
+  const { data: session } = useSession()
+
+
+
 
   useEffect(() => {
     const color = getRandomColors(100)
@@ -36,7 +41,8 @@ const Navbar = () => {
         zIndex: '9999999999999',
       }}>
       <div className='d-flex justify-even align-center gap-sm width-full'>
-        <a href='/'>
+        <a href='/' className='d-flex gap-10px style-none align-center'>
+          <h1> {session?.user.name ? 'Hi' : ''}</h1>
           <Image
             src="/logos/png/logo-white-no-background.png"
             width={100}

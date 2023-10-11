@@ -1,0 +1,49 @@
+@import '../variables/globalVariables.scss';
+
+
+/* Your button styles */
+.login-logout {
+  position: fixed;
+  height: 40px;
+  cursor: pointer;
+  width: 60px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  right: 5px;
+  z-index: 9999999999999999;
+  top: 5px;
+  overflow: hidden;
+  /* Required to hide the ::before element */
+  transition: color 0.3s;
+  /* Transition the text color */
+  text-decoration: none;
+
+}
+
+/* Underline animation on hover */
+.login-logout::before {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+
+.login-logout:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  transition: transform 0.3s;
+}
+
+/* Remove the underline when the button is clicked */
+.login-logout:active::before {
+  transform: scaleX(0);
+  transition: none;
+}

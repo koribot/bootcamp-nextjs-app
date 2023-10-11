@@ -8,8 +8,7 @@ const prisma = new PrismaClient()
 
 export async function GET() {
     try {
-        const projects = await prisma.Projects.findMany();
-
+        const projects = await prisma.projects.findMany();
         return new NextResponse(JSON.stringify(projects), {
             headers: {
                 'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import ProjectForm from '@/components/projectForm/ProjectForm'
 import { retrieveProjects } from '@/services/DB_Requests/GET/retriveProjects'
 import React from 'react'
 import { useState, useEffect } from 'react'
+
 // const projectLists = [
 //     {
 //         name: 'eBextractor', description: 'Allows you to extract/scrape Data from ebay and provide pricing insights, I used python with Flask as backend',
@@ -95,6 +96,7 @@ const Projects = () => {
     return (
         <>
             {/* initial FileExplorer ---- ROOT */}
+
             {isRootFileExplorer
                 &&
                 <FileExplorer content={projectLists}
