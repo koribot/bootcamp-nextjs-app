@@ -16,7 +16,7 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
-      name: 'Sign in',
+      name: 'Email and Password',
       credentials: {
         email: {
           label: 'Email',
@@ -57,9 +57,9 @@ export const authOptions = {
   ],
   theme: {
     colorScheme: "dark", // "auto" | "dark" | "light"
-    brandColor: "#ffff", // Hex color code
-    logo: "", // Absolute URL to image
-    buttonText: "#000" // Hex color code
+    brandColor: "", // Hex color code
+    logo: "https://github.com/koribot/nextjs-images/raw/main/logo-white-no-background.png?raw=true", // Absolute URL to image
+    buttonText: "" // Hex color code
   }
 }
 
