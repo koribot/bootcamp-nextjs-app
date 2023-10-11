@@ -8,7 +8,7 @@ import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import Provider from "@/app/context/client-provider"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
-import Login_Logout from './../components/login_logout - button/Login_Logout';
+import Login_Logout from '../components/login_logout_button/Login_Logout';
 
 const inter = Inter({ subsets: ['latin'] })
 
