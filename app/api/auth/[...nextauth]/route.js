@@ -2,18 +2,20 @@ import { PrismaClient } from "@prisma/client"
 import { compare } from "bcrypt"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
-import secret from 'next-auth/jwt';
 
 const prisma = new PrismaClient();
+
+const secret = process.env.NEXTAUTH_SECRET
+
 export const authOptions = {
   session: {
     strategy: 'jwt'
 
   },
   jwt: {
-    secret: process.env.NEXTAUTH_SECRET, // Access the secret from environment variables
+    secret: secret, // Access the secret from environment variables
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: secret,
   providers: [
     CredentialsProvider({
       name: 'Email and Password',
