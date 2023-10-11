@@ -8,7 +8,7 @@ import FileExplorer from '@/components/fileExplorer/FileExplorer'
 import Provider from "@/components/context/client-provider"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
-import Login_Logout from '../components/login_logout_button/Login_Logout';
+import D from '@/components/login_logout_button/Login_Logout';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,7 +51,7 @@ export default async function RootLayout({ children }) {
             />
           </section>
           <Dock />
-          <Login_Logout />
+          <D />
         </Provider>
       </body>
     </html>
