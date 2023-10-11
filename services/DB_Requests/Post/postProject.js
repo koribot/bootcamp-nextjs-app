@@ -1,7 +1,7 @@
 
 const postProject = async (formData) => {
     try {
-        const response = await fetch('/api/project', {
+        const response = await fetch('/api/projects', {
             method: 'POST', // Specify the HTTP method as GET
             headers: {
                 'Content-Type': 'application/json',

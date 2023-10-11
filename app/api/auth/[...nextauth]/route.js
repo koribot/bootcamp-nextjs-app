@@ -55,6 +55,12 @@ export const authOptions = {
       }
     })
   ],
+  theme: {
+    colorScheme: "dark", // "auto" | "dark" | "light"
+    brandColor: "#ffff", // Hex color code
+    logo: "", // Absolute URL to image
+    buttonText: "#000" // Hex color code
+  }
 }
 
 export const handler = NextAuth(authOptions);

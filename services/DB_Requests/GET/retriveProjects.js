@@ -1,6 +1,6 @@
 export const retrieveProjects = async () => {
     try {
-        const response = await fetch('/api/project', {
+        const response = await fetch('/api/projects', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
