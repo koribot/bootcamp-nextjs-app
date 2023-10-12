@@ -19,11 +19,11 @@ const Folders = ({ contentData }) => {
 	const handleDelete = (data) => {
 		contentData.handleDeleteProject(data)
 	}
-
+	console.log(contentData)
 	return (
 		<div className='folder-container'>
 			<div className={`${!contentData.subFolder ? 'grid-container' : 'flex-container'}`}>
-				{contentData.content.map((data, index) => (
+				{contentData.content?.map((data, index) => (
 					!contentData.subFolder ?
 						<div className='p-relative' key={index}>
 							<Image

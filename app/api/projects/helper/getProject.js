@@ -9,8 +9,11 @@ export async function getProject() {
   } catch (error) {
     console.error('Error fetching data:', error);
 
-    return new NextResponse('Error fetching data', {
-      status: 500,
+    return new NextResponse(JSON.stringify({ error: 'Error fetching data' }), {
+      status:500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } finally {
     await prisma.$disconnect();
