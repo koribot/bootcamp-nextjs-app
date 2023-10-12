@@ -1,12 +1,12 @@
 
-const postProjectRequest = async ({ formData, purpose }) => {
+const postProjectRequest = async (formData) => {
     try {
         const response = await fetch('/api/projects', {
             method: 'POST', // Specify the HTTP method as GET
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ formData, purpose }), // Convert the JSON object to a string
+            body: JSON.stringify(formData), // Convert the JSON object to a string
             purpose: "Add-Project"
         });
 

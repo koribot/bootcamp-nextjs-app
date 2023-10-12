@@ -1,18 +1,17 @@
 import { NextResponse } from "next/server";
 
-export async function addProject(formData, prisma) {
 
-
+export async function addProject(requestBody, prisma) {
   try {
-    const { name, description, link, repoLink, imageLink } = formData;
+    const { name, description, link, repoLink, imageLink } = requestBody;
 
     const newProject = await prisma.projects.create({
       data: {
-        name,
-        description,
-        link,
-        repoLink,
-        imageLink,
+        name: name,
+        description: description,
+        link: link,
+        repoLink: repoLink,
+        imageLink: imageLink,
       },
     });
 

@@ -1,12 +1,10 @@
-export const deleteProjectRequest = async ({ id, purpose }) => {
+export const deleteProjectRequest = async (id) => {
   try {
-    const response = await fetch('/api/projects', {
-      method: 'POST', // Specify the HTTP method as GET
+    const response = await fetch(`/api/projects/delete/${id}`, {
+      method: 'DELETE', // Specify the HTTP method as GET
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id, purpose }), // Convert the JSON object to a string
-      purpose: "Add-Project"
     });
 
     if (!response.ok) {
@@ -14,7 +12,8 @@ export const deleteProjectRequest = async ({ id, purpose }) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    alert("Deleted Succesfully")
+    window.location.reload()
     return data;
   } catch (error) {
     console.error('Error fetching data:', error);

@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
+import { PrismaClient } from '@prisma/client';
 
-export async function deleteProject(id, prisma) {
+const prisma = new PrismaClient()
+
+export async function deleteProject(id) {
+  const parsedID = parseInt(id, 10)
   try {
     const deletedProject = await prisma.projects.delete({
       where: {
-        id: id,
+        id: parsedID,
       },
     });
     if (!deletedProject) {

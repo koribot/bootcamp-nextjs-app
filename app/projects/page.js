@@ -37,116 +37,113 @@ import { deleteProjectRequest } from '@/services/DB_Requests/Delete/deleteProjec
 
 const Projects = () => {
 
-    const [fileExplorerContent, setFileExplorerContent] = useState([])
-    const [isRootFileExplorer, setIsRootFileExplorer] = useState(true)
-    const [projectLists, setProjectLists] = useState([])
-    const [modalOpen, setModalOpen] = useState(false);
+	const [fileExplorerContent, setFileExplorerContent] = useState([])
+	const [isRootFileExplorer, setIsRootFileExplorer] = useState(true)
+	const [projectLists, setProjectLists] = useState([])
+	const [modalOpen, setModalOpen] = useState(false);
 
-    const openFileExplorer = (data) => {
-        if (!fileExplorerContent.some((content) => content.name === data.name)) {
-            setFileExplorerContent((prevContentArray) => {
-                const updatedContentArray = [...prevContentArray];
-                const emptySlotIndex = updatedContentArray.indexOf('');
-                if (emptySlotIndex !== -1) {
-                    updatedContentArray[emptySlotIndex] = data;
+	const openFileExplorer = (data) => {
+		if (!fileExplorerContent.some((content) => content.name === data.name)) {
+			setFileExplorerContent((prevContentArray) => {
+				const updatedContentArray = [...prevContentArray];
+				const emptySlotIndex = updatedContentArray.indexOf('');
+				if (emptySlotIndex !== -1) {
+					updatedContentArray[emptySlotIndex] = data;
 
-                } else {
-                    updatedContentArray.push(data);
-                }
-                return updatedContentArray;
-            });
-        }
+				} else {
+					updatedContentArray.push(data);
+				}
+				return updatedContentArray;
+			});
+		}
 
-    };
-
-
-
-    const removeFromArrayOfFileExplorer = (dataToRemove) => {
-        if (dataToRemove.subFolder === false) {
-            setIsRootFileExplorer(!isRootFileExplorer)
-        }
-
-        setFileExplorerContent((prevContentArray) => {
-            const updatedContentArray = [...prevContentArray];
-            updatedContentArray[dataToRemove.index] = ''; // Set to null or an empty string as desired
-            return updatedContentArray;
-        });
-    };
+	};
 
 
 
-    const openModal = () => {
-        setModalOpen(true);
-    };
+	const removeFromArrayOfFileExplorer = (dataToRemove) => {
+		if (dataToRemove.subFolder === false) {
+			setIsRootFileExplorer(!isRootFileExplorer)
+		}
 
-    const closeModal = () => {
-        setModalOpen(false);
-
-    };
-
-    const handleDeleteProject = async (data) => {
-        const id = data.id
-        await deleteProjectRequest({ id, purpose: 'DELETE-PROJECT' })
-        window.location.reload()
-    }
-
-    useEffect(() => {
-        const GET = async () => {
-            const b = await retriveProjectRequest()
-            setProjectLists(b)
-
-        }
-        GET()
+		setFileExplorerContent((prevContentArray) => {
+			const updatedContentArray = [...prevContentArray];
+			updatedContentArray[dataToRemove.index] = ''; // Set to null or an empty string as desired
+			return updatedContentArray;
+		});
+	};
 
 
-    }, [])
 
-    return (
-        <>
-            {/* initial FileExplorer ---- ROOT */}
+	const openModal = () => {
+		setModalOpen(true);
+	};
 
-            {isRootFileExplorer
-                &&
-                <FileExplorer content={projectLists}
-                    title='projects'
-                    openFileExplorer={openFileExplorer}
-                    subFolder={false}
-                    removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
-                    explorerTitle='projects'
-                    openModal={openModal}
-                    handleDeleteProject={handleDeleteProject}
-                />
-            }
-            <Modal
-                isOpen={modalOpen} onClose={closeModal}
-                closebutton={true}
-                opacity={0.6}
-                backgroundColor='#000000'
-            >
-                <ProjectForm closeModal={closeModal} />
+	const closeModal = () => {
+		setModalOpen(false);
 
-            </Modal>
+	};
 
-            {/* instance of FileExplorer ---- subFolders or sub fileExplorer */}
-            {fileExplorerContent?.map((content, index) => (
-                !content == '' && (
-                    <FileExplorer
-                        key={index}
-                        content={[content]}
-                        title={content.name}
-                        openFileExplorer={openFileExplorer}
-                        subFolder={true}
-                        removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
-                        index={index}
-                        explorerTitle='projects'
-                        openModal={openModal}
+	const handleDeleteProject = async (data) => {
+		const id = data.id
+		await deleteProjectRequest(id)
+		// window.location.reload()
+	}
 
-                    />
-                )
-            ))}
+	useEffect(() => {
+		const GET = async () => {
+			const b = await retriveProjectRequest()
+			setProjectLists(b)
+		}
+		GET()
+	}, [])
 
-        </>
-    )
+	return (
+		<>
+			{/* initial FileExplorer ---- ROOT */}
+
+			{isRootFileExplorer
+				&&
+				<FileExplorer content={projectLists}
+					title='projects'
+					openFileExplorer={openFileExplorer}
+					subFolder={false}
+					removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
+					explorerTitle='projects'
+					openModal={openModal}
+					handleDeleteProject={handleDeleteProject}
+				/>
+			}
+			<Modal
+				isOpen={modalOpen} onClose={closeModal}
+				closebutton={true}
+				opacity={0.6}
+				backgroundColor='#000000'
+			>
+				<ProjectForm closeModal={closeModal} />
+
+			</Modal>
+
+			{/* instance of FileExplorer ---- subFolders or sub fileExplorer */}
+			{fileExplorerContent?.map((content, index) => (
+				!content == '' && (
+					<FileExplorer
+						key={index}
+						content={[content]}
+						title={content.name}
+						openFileExplorer={openFileExplorer}
+						subFolder={true}
+						removeFromArrayOfFileExplorer={removeFromArrayOfFileExplorer}
+						index={index}
+						explorerTitle='projects'
+						openModal={openModal}
+
+					/>
+				)
+			))}
+
+		</>
+	)
 }
 
 
