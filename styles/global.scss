@@ -313,12 +313,12 @@ body {
 //Responsiveness
 .desktop-flex {
     @media screen and (min-width: $small-screen) {
-        display: inherit;
-
+        display: flex;
     }
 
     @media screen and (min-width: $medium-screen) {
-        display: inherit;
+        display: flex;
+
     }
 
     @media screen and (max-width: $medium-screen) {

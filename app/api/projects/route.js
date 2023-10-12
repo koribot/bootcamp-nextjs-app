@@ -28,8 +28,6 @@ export async function GET() {
 }
 export async function POST(req) {
 	const requestBody = await req.json();
-	console.log(requestBody.id)
-
 	switch (requestBody.purpose) {
 		case 'ADD-PROJECT':
 			return await addProject(requestBody.formData, prisma);

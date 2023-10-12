@@ -13,9 +13,9 @@ model Projects {
   createdAt   DateTime @default(now())
   name        String
   description String   @db.VarChar(2000)
-  imageLink   String
-  link        String
-  repoLink    String
+  imageLink   String   @db.VarChar(3000)
+  link        String   @db.VarChar(3000)
+  repoLink    String   @db.VarChar(3000)
 }
 
 model Github {

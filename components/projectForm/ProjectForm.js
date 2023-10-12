@@ -24,9 +24,9 @@ const ProjectForm = ({ closeModal }) => {
     };
     const addToProjects = async (e) => {
         e.preventDefault();
+        await postProjectRequest({ formData, purpose: "ADD-PROJECT" })
         window.location.reload()
         closeModal()
-        await postProjectRequest({ formData, purpose: "ADD-PROJECT" })
     }
 
 
