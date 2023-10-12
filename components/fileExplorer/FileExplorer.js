@@ -58,6 +58,7 @@ const FileExplorer = ({ ...data }) => {
 	}
 
 	useEffect(() => {
+
 		if (typeof window !== undefined) {
 			if (data.subFolder) {
 				setPosition({
@@ -69,7 +70,6 @@ const FileExplorer = ({ ...data }) => {
 				responsiveWidth: window.innerWidth,
 				responsiveHeight: window.innerHeight
 			})
-
 		}
 	}, [])
 
@@ -84,6 +84,7 @@ const FileExplorer = ({ ...data }) => {
 					left: `${position.x}px`,
 					top: `${position.y}px`,
 					cursor: isDragging ? 'grabbing' : 'grab',
+					width: `${windowSize.responsiveWidth <= 480 ? windowSize.responsiveWidth - 60 : ''}px`
 				}}
 				onDragStart={
 					handleMouseDown
