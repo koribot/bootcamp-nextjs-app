@@ -128,7 +128,7 @@ const Projects = () => {
             </Modal>
 
             {/* instance of FileExplorer ---- subFolders or sub fileExplorer */}
-            {fileExplorerContent.map((content, index) => (
+            {fileExplorerContent?.map((content, index) => (
                 !content == '' && (
                     <FileExplorer
                         key={index}
