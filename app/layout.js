@@ -9,6 +9,7 @@ import Provider from "@/components/context/client-provider"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import AuthButton from '@/components/authButton/AuthButton';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }) {
           </section>
           <Dock />
           <AuthButton />
+          <Analytics />
         </Provider>
       </body>
     </html>
