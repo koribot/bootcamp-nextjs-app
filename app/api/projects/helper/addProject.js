@@ -7,11 +7,11 @@ export async function addProject(requestBody, prisma) {
 
     const newProject = await prisma.projects.create({
       data: {
-        name: name,
-        description: description,
-        link: link,
-        repoLink: repoLink,
-        imageLink: imageLink,
+        name,
+        description,
+        link,
+        repoLink,
+        imageLink,
       },
     });
 
